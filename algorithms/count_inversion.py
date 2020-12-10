@@ -27,7 +27,7 @@ def count_split_inv(C, D):
         elif D[j] < C[i]:
             B.append(D[j])
             j += 1
-            count += (n//2 - i)
+            count += (n // 2 - i)
     if i != len(C):
         B.extend(C[i:])
     if j != len(D):
@@ -43,8 +43,8 @@ def count_inv(A):
     if len(A) <= 1:
         return A, 0
     else:
-        C, left_inv = count_inv(A[:len(A)//2])
-        D, right_inv = count_inv(A[len(A)//2:])
+        C, left_inv = count_inv(A[:len(A) // 2])
+        D, right_inv = count_inv(A[len(A) // 2:])
         B, split_inv = count_split_inv(C, D)
         return B, left_inv + right_inv + split_inv
 
