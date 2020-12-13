@@ -26,7 +26,6 @@ class Kosaraju():
         Helper function to get top 5 scc sizes for 
         homework solutions and test case purposes
         """
-        print(scc)
         count = Counter(scc.values())
         values = sorted(list(count.values()), reverse=True)
         while len(values) < 5:
@@ -41,7 +40,7 @@ class Kosaraju():
         vertices = list(G.keys())
         for v in vertices:
             if v not in self.topo_explored:
-                self.DFS_Topo(G, v)
+                self.DFS_Topo_Iterator(G, v)
         order_ascending = {
             k: v
             for k, v in sorted(self.topo_order.items(),
@@ -61,6 +60,31 @@ class Kosaraju():
 
         self.topo_order[s] = self.current_label
         self.current_label -= 1
+
+    def DFS_Topo_Iterator(self, G, s):
+        """
+        Implementation of DFS to explore a graph iteratively
+        instead of recursively
+        """
+        stack = [s]
+        while len(stack) > 0:
+            v = stack.pop()
+            if v not in self.topo_explored:
+                self.topo_explored.append(v)
+                for w in G[v]:
+                    stack.append(w)
+        self.topo_order[s] = self.current_label
+        self.current_label -= 1
+
+    def DFS_SCC_Iterator(self, G, s):
+        stack = [s]
+        while len(stack) > 0:
+            v = stack.pop()
+            if v not in self.explored:
+                self.explored.append(v)
+                self.scc[v] = self.num_scc
+                for w in G[v]:
+                    stack.append(w)
 
     def DFS_SCC(self, G, s):
         """
@@ -82,7 +106,7 @@ class Kosaraju():
         for v in g_rev_order.keys():
             if v not in self.explored:
                 self.num_scc += 1
-                self.DFS_SCC(self.graph, v)
+                self.DFS_SCC_Iterator(self.graph, v)
         return self._format_scc(self.scc)
 
 
