@@ -108,22 +108,3 @@ class Kosaraju():
                 self.num_scc += 1
                 self.DFS_SCC_Iterator(self.graph, v)
         return self._format_scc(self.scc)
-
-
-if __name__ == "__main__":
-    G = {
-        1: [2],
-        2: [3, 4, 5],
-        3: [6],
-        4: [5, 7],
-        5: [2, 6, 7],
-        6: [3, 8],
-        7: [8, 10],
-        8: [7],
-        9: [7],
-        10: [9, 11],
-        11: [12],
-        12: [10]
-    }
-    kosaraju = Kosaraju(G)
-    print(kosaraju.get_scc())

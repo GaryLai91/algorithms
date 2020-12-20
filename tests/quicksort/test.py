@@ -2,9 +2,9 @@ from algorithms.quicksort import Quicksort
 from unittest import TestCase
 
 
-def get_data(fname):
+def get_data(filename):
     data = []
-    with open(fname, "r") as f:
+    with open(filename, "r") as f:
         for line in f.readlines():
             data.append(int(line))
     return data
