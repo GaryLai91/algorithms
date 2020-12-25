@@ -55,8 +55,6 @@ def dijkstra_heap(graph, source_vertex):
     source_vertex: A source vertex, an entrypoint of the graph
     edge_lengths: A map that stores the length of each edges. 
     """
-    # h = []
-    # heapq.push(h, (0, 's'))
     x = set()
     heap = []
     shortest_key = {source_vertex: 0}
@@ -74,7 +72,7 @@ def dijkstra_heap(graph, source_vertex):
             idx_to_remove = search_vertex(heap, y)
 
             #################################################################################
-            ### Hack: since the graph given it not strictly directive                     ###
+            ### Since the graph given it not strictly directive                     ###
             ### idx_to_remove is None only if it comes from the opposite direction        ###
             ### e.g. 1 -> 8 (already processed), but in future, we have to process 8 -> 1 ###
             #################################################################################
