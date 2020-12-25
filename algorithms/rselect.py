@@ -19,7 +19,3 @@ def RSelect(arr, l, r, k):
         return RSelect(arr, l, j - 1, k)
     else:
         return RSelect(arr, j + 1, r, k)
-
-
-# Might enco
-# RecursionError: maximum recursion depth exceeded while calling a Python object

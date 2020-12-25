@@ -31,9 +31,3 @@ def DFS_Topo(G, s):
 
     order[s] = current_label
     current_label -= 1
-
-
-if __name__ == "__main__":
-    G = {'A': ['B', 'C'], 'B': [], 'C': ['D'], 'D': []}
-    order = TopoSort(G)
-    print(order)

@@ -56,17 +56,3 @@ def simulate_mincut(graph):
         if min_cut < min_:
             min_ = min_cut
     return min_
-
-
-if __name__ == "__main__":
-    graph = get_data(input_dir)
-    with open(output_dir, "r") as f:
-        output = [int(i) for i in f.readlines()][0]
-    min_ = 99999999999999999
-    for i in range(1, 5001):
-        min_cut = MinCut(graph)
-        print(f"{i+1}th iteration: {min_cut}")
-        if min_cut < min_:
-            min_ = min_cut
-    print(f"MinCut: {min_}")
-    print(f"Answer: {output}")

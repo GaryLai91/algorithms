@@ -28,15 +28,3 @@ def DFS_recursive(G, s):
     for v in G[s]:
         if v not in explored:
             DFS_recursive(G, v)
-
-
-if __name__ == "__main__":
-    G = {
-        "s": ["a", "b"],
-        "a": ["s", "c"],
-        "b": ["s", "c", "d"],
-        "c": ["a", "b", "d", "e"],
-        "d": ["b", "c", "e"],
-        "e": ["c", "d"]
-    }
-    DFS(G, 's')

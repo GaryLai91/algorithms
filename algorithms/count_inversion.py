@@ -47,7 +47,3 @@ def count_inv(A):
         D, right_inv = count_inv(A[len(A) // 2:])
         B, split_inv = count_split_inv(C, D)
         return B, left_inv + right_inv + split_inv
-
-
-if __name__ == "__main__":
-    print(count_inv([8, 7, 6, 5, 4, 3, 2, 1]))
