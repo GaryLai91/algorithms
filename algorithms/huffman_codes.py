@@ -20,7 +20,7 @@ class Node:
         return self.weight > other.weight
 
     def __eq__(self, other):
-        return self.name == other.name
+        return self.name == other.name and self.weight == other.weight
 
 
 def huffman(C: List):
@@ -32,7 +32,7 @@ def huffman(C: List):
     n = len(C)
     heap = []
     for i in range(n):
-        heapq.heappush(heap, Node(weight=C[i], name=index))
+        heapq.heappush(heap, Node(weight=C[i], name=str(index)))
         index += 1
     for i in range(n - 1):
         x = heapq.heappop(heap)
