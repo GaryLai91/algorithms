@@ -34,15 +34,3 @@ def test_case(filename):
     root = huffman(data)
     output, _min, _max = bfs_label(root)
     assert _min == output_min and _max == output_max
-
-
-if __name__ == "__main__":
-    data = get_input("input_random_4_10.txt")
-    print(data)
-    output_min, output_max = get_output("input_random_4_10.txt".replace(
-        "input", "output"))
-    root = huffman(data)
-    output, _min, _max = bfs_label(root)
-    print(f"Output: {output}\nMin: {min(output)}\nMax: {max(output)}")
-    print(_min, _max)
-    print(f"Correct output: Min: {output_min}, Max: {output_max}")

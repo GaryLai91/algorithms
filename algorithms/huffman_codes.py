@@ -74,10 +74,3 @@ def bfs_label(root):
                     if w.level > _max:
                         _max = w.level
     return output, _min, _max
-
-
-if __name__ == "__main__":
-    ls = [37, 59, 43, 27, 30, 96, 96, 71, 8, 76]
-    root = huffman(ls)
-    output, _min, _max = bfs_label(root)
-    print(f"Min: {_min}, Max: {_max}")
