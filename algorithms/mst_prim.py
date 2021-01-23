@@ -31,12 +31,12 @@ def simple_mst_prim(graph):
     while True:
         edges = []
         for u in x:
-            for v in graph[u].keys():
+            for v, w in graph[u]:
                 if v not in x:
-                    edges.append((u, v, graph[u][v]))
+                    edges.append((v, w))
         if len(edges) == 0:
             break
-        min_edge = min(edges, key=lambda z: z[2])
+        min_edge = min(edges, key=lambda z: z[1])
         x.add(min_edge[1])
         t.append(min_edge)
     return calc_cost(t)
