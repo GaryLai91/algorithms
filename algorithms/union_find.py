@@ -20,3 +20,10 @@ class UF:
 
         self.parent[a] = self.find(self.parent[a])
         return self.parent[a]
+
+    def get_clusters(self):
+        n_clusters = []
+        for i in range(len(self.parent)):
+            if self.parent[i] == i:
+                n_clusters.append(i)
+        return n_clusters

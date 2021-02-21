@@ -25,7 +25,7 @@ def test_case(filename):
 
 
 if __name__ == "__main__":
-    data = get_data("job_scheduling_test_cases/challenge.txt")
+    data = get_data("challenge.txt")
     diff = schedule(data, greedy_diff)
     ratio = schedule(data, greedy_ratio)
     print(f"diff: {diff}")

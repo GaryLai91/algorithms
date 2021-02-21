@@ -42,3 +42,11 @@ def test_case(filename):
     scc = kosaraju.get_scc()
     output = get_output(filename.replace("input", "output"))
     assert scc == output
+
+
+if __name__ == "__main__":
+    filename = "challenge.txt"
+    g = get_data(filename)
+    kosaraju = Kosaraju(g)
+    scc = kosaraju.get_scc()
+    print(scc)
